@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crypsilo</title>
+    <h1>Crypsilo Password Manager</h1>
+    <style>
+html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
+body{margin:0}article,aside,details,figcaption,figure,footer,header,main,menu,nav,section,summary{display:block}audio,
+canvas,progress,video{display:inline-block;vertical-align:baseline}audio:not([controls]){display:none;height:0}[hidden],
+template{display:none}a:active,a:hover{outline:0}b,strong{font-weight:700}sub,sup{font-size:10%;line-height:0;position:relative;vertical-align:baseline}sup{top:-.5em}sub{bottom:-.25em}img{border:0}svg:not(:root)
+{overflow:hidden}hr{box-sizing:content-box}pre{overflow:auto}button[disabled],
+html input[disabled]{cursor:default}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0}
+html{box-sizing:border-box}*,:after,:before{box-sizing:inherit}figure{margin:0}
+html{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;
+    font:normal normal normal 1rem/1.6 -apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-size:1rem}body{color:#404040;background:#fff;font-size:1rem}dl,ol,p,table,ul{margin:0 0 1.5rem}
+    ol li ol,ul li ul{margin-bottom:0}
+    h1,h2,h3,h4,h5{font-weight:600;font-family:-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;
+    line-height:1.2;color:#404040}h1,h1:not(:first-child),h2,h2:not(:first-child),h3,h3:not(:first-child),
+    h4,h4:not(:first-child),h5,h5:not(:first-child){margin:1.5rem 0}h1:not(:first-child),h2:not(:first-child),
+    h3:not(:first-child){margin-top:2rem}h1{font-size:1.75rem}h2{font-size:1.5rem}h3{font-size:1.25rem}h4
+    {font-size:1.1rem}h5{font-size:1rem}@media (min-width:60px){h1:not(:first-child),h2:not(:first-child),
+        h3:not(:first-child){margin-top:2.5rem}h1{font-size:2.25rem}h2{font-size:2rem}h3{font-size:1.75rem}
+        h4{font-size:1.5rem}h5{font-size:1.25rem}}a{color:#0366ee;text-decoration:none}a:active,a:focus,
+        a:hover{color:#0246a2;text-decoration:underline}mark{background:#ffeea8;padding:0 .2rem}
+        blockquote{margin:0 0 1.5rem;border-left:16px solid #f0f0f0;padding:0 1.5rem;font-size:1.5rem}
+        blockquote cite{display:block;margin-top:1.5rem;font-size:1rem;text-align:right}
+        pre{border:0;border-radius:4px;background:transparent;padding:1rem;-moz-tab-size:2;-o-tab-size:2;tab-size:2;
+            color:#404040;font-size:14px;margin:0 0 1.5rem}pre,pre code{font-family:Menlo,monospace}
+            pre code{line-height:1.2}kbd{background-color:#f7f7f7;border:1px solid #ccc;border-radius:3px;
+                box-shadow:0 1px 0 rgba(0,0,0,.2),inset 0 0 0 2px #fff;color:#333;display:inline-block;
+                font-family:Helvetica,Arial,sans-serif;font-size:13px;line-height:1.4;margin:0 .1em;padding:.1em .6em;
+                text-shadow:0 1px 0 #fff}:not(pre)>code{color:#404040;background:transparent;font-family:Menlo,monospace;
+                    font-size:14px;padding:0 .2rem;border:1px solid #dedede;border-radius:4px}
+                    hr{height:0;border:0;border-top:1px solid #dedede}
+                    dt{font-weight:600}dd{margin-bottom:.5rem}.full-container{max-width:100%;padding:0 1rem}.container,
+        .medium-container,
+.small-container{max-width:1200px;padding:0 1rem;margin-left:auto;margin-right:auto}.small-container{max-width:800px}
+.medium-container{max-width:1000px}.content-section{padding:30px 0}@media (min-width:600px)
+{.content-section{padding:60px 0}}.flex-large,
+.flex-small{padding-left:1rem;padding-right:1rem}.flex-row{margin-left:-1rem;margin-right:-1rem;
+    display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-orient:horizontal;-webkit-box-direction:normal;
+    -ms-flex-direction:row;flex-direction:row;-ms-flex-wrap:wrap;
+    flex-wrap:wrap}.flex-large,.flex-small{-ms-flex-preferred-size:100%;flex-basis:100%;
+margin-bottom:1rem}@media (min-width:600px){.flex-small{-webkit-box-flex:1;
+    -ms-flex:1 1 0px;flex:1 1 0;margin-bottom:0}}@media (min-width:100px){.flex-large{-webkit-box-flex:1;-ms-flex:1 1 0px;flex:1 1 0;margin-bottom:0}}.clearfix:after,.clearfix:before{content:" ";display:block}.clearfix:after{clear:both}.text-left{text-align:left}.text-right{text-align:right}.text-center{text-align:center}.text-justify{text-align:justify}.block{display:block}.inline-block{display:inline-block}.inline{display:inline}.vertical-center{display:-webkit-box;display:-ms-flexbox;display:flex;-webkit-box-align:center;-ms-flex-align:center;align-items:center;-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}.responsive-image{max-width:100%;height:auto}.show{display:block!important}.hide{display:none!important}.invisible{visibility:hidden}.float-left{float:left}.float-right{float:right}.no-padding-top{padding-top:0}.no-padding-bottom{padding-bottom:0}.padding-top{padding-top:2rem}.padding-bottom{padding-bottom:2rem}.no-margin-top{margin-top:0}.no-margin-bottom{margin-bottom:0}.margin-top{margin-top:2rem}.margin-bottom{margin-bottom:2rem}.alternate-background{background:#fafafa;color:#404040}.screen-reader-text{clip:rect(1px,1px,1px,1px);position:absolute!important;height:1px;width:1px;overflow:hidden}.button,[type=button],[type=reset],[type=submit],a.button,
+    button{-webkit-appearance:none;display:inline-block;border:1px solid #bdc1c5;border-radius:6px;background:#0366ee;color:#fff;font-weight:600;font-family:-apple-system,BlinkMacSystemFont,Helvetica Neue,Helvetica,Arial,sans-serif;font-size:1rem;text-transform:none;padding:.75rem 1.25rem;margin:0 0 .5rem;vertical-align:middle;text-align:center;cursor:pointer;text-decoration:none;line-height:1}.button:active,.button:focus,.button:hover,[type=button]:active,[type=button]:focus,[type=button]:hover,[type=reset]:active,[type=reset]:focus,[type=reset]:hover,[type=submit]:active,[type=submit]:focus,[type=submit]:hover,a.button:active,a.button:focus,a.button:hover,button:active,button:focus,button:hover{border:1px solid #0250bc;background:#0250bc;color:#fff;text-decoration:none}.button::-moz-focus-inner,[type=button]::-moz-focus-inner,[type=reset]::-moz-focus-inner,[type=submit]::-moz-focus-inner,a.button::-moz-focus-inner,button::-moz-focus-inner{border:0;padding:0}.accent-button,a.accent-button{color:#fff;border:1px solid #fcb42a;background:#fcb42a}.accent-button:active,.accent-button:focus,.accent-button:hover,a.accent-button:active,a.accent-button:focus,a.accent-button:hover{color:#fff;border:1px solid #f09f03;background:#f09f03}.muted-button,a.muted-button{background:transparent;border:1px solid #cdcdcd;color:#4e4e4e}.muted-button:active,.muted-button:focus,.muted-button:hover,a.muted-button:active,a.muted-button:focus,a.muted-button:hover{color:#4e4e4e;border:1px solid #818181;background:transparent}.round-button,a.round-button{border-radius:40px}.square-button,a.square-button{border-radius:0}.full-button,a.full-button{display:block;width:100%}[type=color],[type=date],[type=datetime-local],[type=datetime],[type=email],[type=month],[type=number],[type=password],[type=search],[type=tel],[type=text],[type=time],[type=url],[type=week],select,textarea{display:block;border:1px solid #cdcdcd;border-radius:4px;padding:.75rem;outline:none;background:transparent;margin-bottom:.5rem;font-size:1rem;width:100%;max-width:100%;line-height:1}[type=color]:hover,[type=date]:hover,[type=datetime-local]:hover,[type=datetime]:hover,[type=email]:hover,[type=month]:hover,[type=number]:hover,[type=password]:hover,[type=search]:hover,[type=tel]:hover,[type=text]:hover,[type=time]:hover,[type=url]:hover,[type=week]:hover,select:hover,textarea:hover{border:1px solid #b4b4b4}[type=color]:active,[type=color]:focus,[type=date]:active,[type=date]:focus,[type=datetime-local]:active,[type=datetime-local]:focus,[type=datetime]:active,[type=datetime]:focus,[type=email]:active,[type=email]:focus,[type=month]:active,[type=month]:focus,[type=number]:active,[type=number]:focus,[type=password]:active,[type=password]:focus,[type=search]:active,[type=search]:focus,[type=tel]:active,[type=tel]:focus,[type=text]:active,[type=text]:focus,[type=time]:active,[type=time]:focus,[type=url]:active,[type=url]:focus,[type=week]:active,[type=week]:focus,select:active,select:focus,textarea:active,textarea:focus{border:1px solid #0366ee;box-shadow:inset 0 1px 1px rgba(0,0,0,.1),0 0 6px #8cbcfe}textarea{overflow:auto;height:auto}fieldset{border:1px solid #dedede;border-radius:4px;padding:1rem;margin:1.5rem 0}legend{padding:0 .5rem;font-weight:600}select{color:#404040;-webkit-appearance:none;-moz-appearance:none;background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAAJCAYAAAA/33wPAAAAvklEQVQoFY2QMQqEMBBFv7ERa/EMXkGw11K8QbDXzuN4BHv7QO6ifUgj7v4UAdlVM8Uwf+b9YZJISnlqrfEUZVlinucnBGKaJgghbiHOyLyFKIoCbdvecpyReYvo/Ma2bajrGtbaC58kCdZ1RZ7nl/4/4d5EsO/7nzl7IUtodBexMMagaRrs+06JLMvcNWmaOv2W/C/TMAyD58dxROgSmvxFFMdxoOs6lliWBXEcuzokXRbRoJRyvqqqQvye+QDMDz1D6yuj9wAAAABJRU5ErkJggg==) 100% no-repeat;line-height:1}select::-ms-expand{display:none}[type=range]{width:100%}label{font-weight:600;max-width:100%;display:block;margin:1rem 0 .5rem}@media (min-width:600px){.split-form label{text-align:right;padding:0 .5rem;margin-bottom:1rem}}input.has-error,input.has-error:active,input.has-error:focus,input.has-error:hover,select.has-error,select.has-error:active,select.has-error:focus,select.has-error:hover,textarea.has-error,textarea.has-error:active,textarea.has-error:focus,textarea.has-error:hover{border:1px solid #d33c40;box-shadow:inset 0 1px 1px rgba(0,0,0,.1),0 0 6px #f4cecf}:-moz-placeholder,:-ms-input-placeholder,::-moz-placeholder,::-webkit-input-placeholder{color:#9a9a9a}table{border-collapse:collapse;border-spacing:0;width:100%;max-width:100%}thead th{border-bottom:2px solid #dedede}tfoot th{border-top:2px solid #dedede}td{border-bottom:1px solid #dedede}td,th{text-align:left;padding:.5rem}caption{padding:1rem 0;caption-side:bottom;color:#ababab}.striped-table tbody tr:nth-child(odd){background-color:#f8f8f8}.contain-table{overflow-x:auto}@media (min-width:600px){.contain-table{width:100%}}
+</style>
+    <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css'>
+    <script src="https://unpkg.com/arweave/bundles/web.bundle.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"></script>
+    <script>
+   
+    function printDiv(table){
+      if(	document.getElementById("crypsilo")!=null){
+        document.getElementById("crypsilo").remove();
+      }
+      document.body.append(createLoginForm());
+      if(	document.getElementById("signoff")!=null){
+        document.getElementById("signoff").remove();
+      }
+      if(	document.getElementById("mydata")!=null){
+        document.getElementById("mydata").remove();
+      }
+      logged = false;
+      your_address = '';
+      key = '';
+    }
+
+    function loadData(){
+      if(document.getElementById('signoff')!=null){
+        if(	document.getElementById("mydata")!=null){
+          document.getElementById("mydata").remove();
+        }
+        if(	document.getElementById("crypsilo")!=null){
+          document.getElementById("crypsilo").remove();
+        }
+        document.body.append(createCrypsiloForm());
+        var myNode = document.getElementById("crypsilos-list");
+        while (myNode.firstChild) {
+            myNode.removeChild(myNode.firstChild);
+        }
+        getTransactionsByAddress(your_address);
+      }
+      else{
+        if(	document.getElementById("enter-data")!=null){
+          document.getElementById("enter-data").remove();
+        }
+        document.body.append(createLoginForm());
+      }
+    }
+    var logged = false;
+    var your_address = '';
+    var key = '';
+    var signoff;
+
+    function onBodyload(){
+      signoff = document.getElementById('signoff').cloneNode(true);
+
+      if(	document.getElementById("signoff")!=null){
+        document.getElementById("signoff").remove();
+      }
+
+      document.body.append(createLoginForm());
+    }
+
+    function signout(){
+      if(	document.getElementById("crypsilo")!=null){
+        document.getElementById("crypsilo").remove();
+      }
+      document.body.append(createLoginForm());
+      if(	document.getElementById("signoff")!=null){
+        document.getElementById("signoff").remove();
+      }
+      if(	document.getElementById("mydata")!=null){
+        document.getElementById("mydata").remove();
+      }
+      logged = false;
+      your_address = '';
+      key = '';
+    }
+    function inputKey(){
+        var filename = document.getElementById("key");
+        if(filename != null){
+            var reader = new FileReader();
+            reader.readAsText(filename.files[0]);
+            reader.onload = function () {
+              document.getElementById("jwk").value = reader.result;
+           };
+       }
+    }
+
+    function dataConfirmation(){
+      if(document.getElementById("jwk") != null){
+        var jwk = JSON.parse(document.getElementById("jwk").value);
+        arweave.wallets.jwkToAddress(jwk).then((address) => {
+            logged = true;
+  			  	your_address = address;
+  				  key = jwk;
+            if(	document.getElementById("enter-data")!=null){
+              document.getElementById("enter-data").remove();
+            }
+            document.body.append(createCrypsiloForm());
+            var myNode = document.getElementById("crypsilos-list");
+            while (myNode.firstChild) {
+                myNode.removeChild(myNode.firstChild);
+            }
+            getTransactionsByAddress(address);
+            document.getElementsByClassName("nav-item")[0].append(signoff);
+        }).catch((error) => {
+  			  console.log(error);
+  		  });
+      }
+    }
+
+    function addLinks(value, index, array){
+      var node = document.createElement("LI");
+      var textnode = document.createTextNode(value);
+      node.appendChild(textnode);
+      node.onclick = function (){
+        arweave.transactions.get(value).then((transaction) => {
+      		var data = transaction.get('data', {decode: true, string: true}).split('|');
+          if(	document.getElementById("crypsilo")!=null){
+            document.getElementById("crypsilo").remove();
+          }
+          document.body.append(createCrypsilo(data[0], data[1],data[2]));
+      	}).catch((error) => {
+      		console.log(error);
+      	});
+      }
+      document.getElementById("crypsilos-list").appendChild(node);
+    }
+
+    function createCrypsilo(cname, cp, ctag){
+      var conf_temp = document.createElement("SPAN");
+      conf_temp.id = "mydata";
+      conf_temp.innerHTML = '<h1 id = "cname" class = "text-center" value="">'+ cname +'</h1> \
+      <div class="card-header">  <div class = "card col-md-7 mx-auto"> \
+          <p id = "cp" class = "mx-auto" value="">'+ cp +'</p> \
+          <div class="card-body">\
+ <div class = "card col-md-7 mx-auto"> \
+            <p id = "ctag" class = "mx-auto" value="">'+ ctag +'</p> \
+        </div>';
+      return conf_temp;
+    }
+
+    function createCrypsiloForm(){
+      var conf_form = document.createElement("SPAN");
+      conf_form.id = "crypsilo";
+      conf_form.innerHTML = 
+      ' <style>\
+    input {border-style:none; border-color: transparent;}\
+    .container{overflow:hidden}\
+    .tab{float:left;}\
+    .tab-2{margin-left:350px}\
+    .tab-2 input{display:block;margin-bottom:20px}\
+tr{transition:all .25s ease-in-out}\
+tr:hover{background-color:#EEE;cursor:pointer}\
+#table {\
+  font-family: "Helvetica", Tahoma, Helvetica, sans-serif;\
+  border-collapse: collapse;\
+  width: 100%;\
+}\
+#table td, #table th {\
+  border: 1px solid #ddd;\
+  padding: 18px;\
+}\
+#table tr:nth-child(even){background-color: #f2f2f2;}\
+#table tr:hover {background-color: #ddd;}\
+#table th {\
+  padding-top: 20px;\
+  padding-bottom: 12px;\
+  text-align: left;\
+  background-color: #55bed7;\
+  color:white;\
+}\
+hr { \
+  display: block;\
+  margin-top: 0.5em;\
+  margin-bottom: 0.5em;\
+  margin-left: auto;\
+  margin-right: auto;\
+  border-style: inset;\
+  border-width: 3px;\
+} \
+</style>  \
+    <div class="form-group"> \
+  <div class="header"><h2>Password List</h2></div>\
+          <div class="tab tab-1">\
+              <table id="table" border="1">\
+                  <tr><h2>\
+                      <th>Name of Service</th>\
+                        <th>Password</th>\
+                        <th>Service Tag</th>\
+                  </tr></h2>\
+                        <tr>\
+                        <td>Default</td>\
+                        <td>password</td>\
+                        <td>General</td>\
+                    </tr>\
+                        </table>\
+    </div>\
+<div class="tab tab-2">\
+</div>\
+                        <div class="tab tab-2">\
+                           <h4> Service Name<input type="text" name="cname" id="cname" placeholder="Enter service name"></h4>\
+                           <h4>  Password<input type="password"  name="cp" id="cp"placeholder="Enter password"></h4>\
+                            <h4>  <label for="ctag">Choose a tag:</label></h4> \
+                           <select id="ctag">\<h5>\
+                            <h5><option value="Email">Email</option>\
+                            <option value="Social Media">Social Media</option>\
+                            <option value="Banking">Banking/finance</option>\
+                            <option value="Mobile/Computer">Mobile/Computer</option>\
+                            <option value="Others">Others</option>\
+                          </select>\</h5>\<br>\
+                        <button class = "btn-primary" type="sbutton" onclick="insertData()"> Create</button> \
+                        <button class = "btn-primary" type="sbutton" onclick="editData()"> Change</button> \
+                        <button class = "btn-primary" type="sbutton" onclick="deleteData()"> Delete</button> \
+                        <button class = "btn-primary " type="sbutton" onclick="userData()"> Encrypt</button>\
+                        <hr>\
+                        <div class = "card mx-auto"> \
+        <h4> Encrypted Storage Section</n></h4> \
+         <ul>\
+            <ol id = "crypsilos-list" class = "mx-auto" value="" /> </ol> \
+      <ol id = "crypsilos-list"/></ul>'
+      return conf_form
+    }
+    
+  	function printDiv(table){
+			var printContents = document.getElementById('table').innerHTML;
+			var originalContents = document.body.innerHTML;
+
+			document.body.innerHTML = printContents;
+
+			window.print();
+
+			document.body.innerHTML = originalContents;
+
+		}
+            function checkEmptyInput(){
+                var isEmpty=false,
+                cname=document.getElementById("cname").value, 
+        cp=document.getElementById("cp").value,        
+        ctag=document.getElementById("ctag").value; 
+
+        if(cname===""){
+        alert("Service name can't be empty");
+                isEmpty=true;
+            }
+            else if(cp===""){
+        alert("Password field can't be empty");
+                isEmpty=true;
+            }
+            else if(ctag===""){
+        alert("Tag field can't be empty");
+                isEmpty=true;
+            }
+            return isEmpty;
+            }
+    function insertData()
+    {
+        if(!checkEmptyInput()){
+        var newRow=table.insertRow(table.length),
+        cell1=newRow.insertCell(0),
+        cell2=newRow.insertCell(1),
+        cell3=newRow.insertCell(2),
+        cname=document.getElementById("cname").value; 
+        cp=document.getElementById("cp").value;        
+        ctag=document.getElementById("ctag").value; 
+
+        cell1.innerHTML=cname,      
+        cell2.innerHTML=cp,
+        cell3.innerHTML=ctag,       
+       
+        selectedRowToInput();
+    }
+    }
+    function selectedRowToInput()
+    {
+        for(var i=1;i<table.rows.length;i++)
+    {
+        table.rows[i].onclick=function(){
+            //get the selcted row index
+            rIndex=this.rowIndex;
+        document.getElementById("cname").value=this.cells[0].innerHTML;
+        document.getElementById("cp").value=this.cells[1].innerHTML;
+        document.getElementById("ctag").value=this.cells[2].innerHTML;
+
+        };
+    }
+    }       
+function editData(){
+
+var cname = document.getElementById("cname").value,
+cp=document.getElementById("cp").value;        
+        ctag=document.getElementById("ctag").value; 
+    table.rows[rIndex].cells[0].innerHTML=cname;
+    table.rows[rIndex].cells[1].innerHTML=cp;
+
+    table.rows[rIndex].cells[2].innerHTML=ctag;
+
+
+}
+    function deleteData(){
+        table.deleteRow(rIndex);
+    document.getElementById("cname").value="",
+      document.getElementById("cp").value="",
+       document.getElementById("ctag").value="";
+    }
+    function createLoginForm(){
+      var div_a = document.createElement("SPAN");
+      div_a.id = "enter-data";
+      div_a.innerHTML = '<div class = "card col-md-5 mx-auto"> \
+        <div class = "text-center mx-auto"> \
+            <div class="form-group"> \
+                <label for="key"> Key File</label> \
+                <input id="key" type = "file", name = "key" accept=".json" class = "form-control col-lg-15" onchange="inputKey()"> \
+            </div> \
+            <div class="form-group"> \
+                <input id="jwk" class="form-control" type = "hidden" name="jwk" value = ""> \
+            </div> \
+            <button class = "btn-primary" type="button" onclick="dataConfirmation()"> Submit</button> \
+        </div> \
+      </div>'
+      return div_a;
+    }
+
+    function userData(){
+      arweave.createTransaction({data: document.getElementById("cname").value + '|' + document.getElementById("cp").value+ '|' + document.getElementById("ctag").value}, key).then((transaction) =>{
+        transaction.addTag('app', 'ar-userData');
+        transaction.addTag('type', 'mydata');
+  			arweave.transactions.sign(transaction, key).then((signedtransaction) => {
+  				arweave.transactions.post(transaction).then((response) => {
+  					loadData();
+  				}).catch((error) => {
+  					console.log(error);
+  				});
+  			}).catch((error) => {
+  				console.log(error);
+  			});
+  		}).catch((error) => {
+  			console.log(error);
+  		});
+    }
+
+    async function getTransactionsByAddress(address) {
+    	const query = {
+    		op: 'equals',
+    		expr1: 'from',
+    		expr2: address
+    	};
+    	const res = await arweave.api.post('arql', query);
+
+    	if(res.data && res.data.length) {
+    		await Promise.all(res.data.map(async linkId => {
+          arweave.transactions.get(linkId).then(transaction => {
+              var check = 0;
+              transaction.get('tags').forEach(tag => {
+                  let key = tag.get('name', {decode: true, string: true});
+                  let value = tag.get('value', {decode: true, string: true});
+                  if((key == 'app' && value == 'ar-userData') || (key == 'type' && value == 'mydata')){check++};
+                  if(check == 2){
+                    [linkId].forEach(addLinks);
+                  };
+              });
+          });
+    		}));
+    	}
+    }
+
+    const arweave = Arweave.init({
+        host: 'arweave.net',
+        port: 443,
+        protocol: 'https'
+    });
+    </script>
+</head>
+<body onload="onBodyload()">
+  <nav class="navbar navbar-expand-sm bg-light">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <p class="navbar-brand" onclick="loadData()"> Home</p>
+      </div>
+      <div>
+        <p class="navbar-brand" onclick="loadData()"> </p>
+      </div>
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button id = "signoff" class="btn btn-secondary" onclick="signout()"> Log Out</button>
+          <button class = "btn btn-secondary" onclick="printDiv(table)">Print</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+</body>
+</html>
